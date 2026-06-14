@@ -1,11 +1,19 @@
 module "ecs" {
-  source = "terraform-aws-modules/ecs/aws"
+  source  = "terraform-aws-modules/ecs/aws"
+  version = "~> 7.5"
 
-  cluster_name       = var.ambiante
+  cluster_name = var.ambiante
+
+  cluster_settings = {
+    name  = "containerInsights"
+    value = "disabled"
+  }
+
   fargate_capacity_providers = {
     FARGATE = {
       default_capacity_provider_strategy = {
         weight = 100
+        base   = 1
       }
     }
   }
