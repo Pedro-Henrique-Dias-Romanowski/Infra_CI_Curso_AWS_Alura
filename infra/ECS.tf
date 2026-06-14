@@ -4,17 +4,13 @@ module "ecs" {
 
   cluster_name = var.ambiante
 
-  cluster_settings = {
-    name  = "containerInsights"
-    value = "disabled"
-  }
+  # v7.x: usar cluster_capacity_providers (lista) + default_capacity_provider_strategy (mapa)
+  cluster_capacity_providers = ["FARGATE"]
 
-  fargate_capacity_providers = {
+  default_capacity_provider_strategy = {
     FARGATE = {
-      default_capacity_provider_strategy = {
-        weight = 100
-        base   = 1
-      }
+      weight = 100
+      base   = 1
     }
   }
 }
