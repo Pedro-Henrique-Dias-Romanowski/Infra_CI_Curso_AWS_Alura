@@ -25,6 +25,6 @@ resource "aws_lb_target_group" "alvo" {
   }
 }
 
-output "IP" {
+output "IP_alb" {
   value = aws_lb.alb.dns_name
 }
