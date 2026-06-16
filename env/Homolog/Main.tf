@@ -8,5 +8,5 @@ module "homolog" {
 }
 
 output "IP_alb" {
-  value = module.homolog.IP
+  value = module.homolog.IP_alb
 }
